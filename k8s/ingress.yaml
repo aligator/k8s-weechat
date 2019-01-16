@@ -1,0 +1,21 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  annotations:
+    certmanager.k8s.io/acme-challenge-type: http01
+    certmanager.k8s.io/issuer: <certmanager-issuer>
+  name: weechat
+  namespace: weechat
+spec:
+  rules:
+  - host: <my-hostname>
+    http:
+      paths:
+      - backend:
+          serviceName: weechat
+          servicePort: 8001
+        path: /
+  tls:
+  - hosts:
+    - <my-hostname>
+    secretName: irc-cert

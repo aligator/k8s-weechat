@@ -1,0 +1,24 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  labels:
+    app: weechat
+  name: weechat
+  namespace: weechat
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: weechat
+  template:
+    metadata:
+      labels:
+        app: weechat
+    spec:
+      containers:
+      - image: <container-registry>/weechat
+        imagePullPolicy: Always
+        name: weechat
+        ports:
+        - containerPort: 8001
+          protocol: TCP
