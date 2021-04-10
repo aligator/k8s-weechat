@@ -6,7 +6,7 @@ LABEL maintainer="greg@greghaynes.net"
 
 ENV HOME /home/user
 
-RUN ["apk", "add", "--no-cache", "weechat", "weechat-perl", "weechat-python", "weechat-aspell", "ca-certificates", "aspell-en", "python", "perl"]
+RUN ["apk", "add", "--no-cache", "weechat", "weechat-perl", "weechat-python", "weechat-aspell", "ca-certificates", "aspell-en", "python3", "perl"]
 
 RUN ["adduser", "-D", "-h", "$HOME", "user"]
 RUN ["mkdir", "-p", "$HOME/.weechat"]
